@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="jquery-3.6.1.min.js"></script>
+    <link rel="icon" href="../static/images/graduates.png">
+    <link rel="stylesheet" href="../static/css/font.css">
+    <link rel="stylesheet" href="../static/css/navbar.css">
+    <link rel="stylesheet" href="../static/css/login.css">
+    <title>Login</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+           <ul>
+            <li> <a href="{{url_for('admin')}}" class="nav-link">Admin</a></li>
+            <!-- <li> <a href="{{url_for('logout')}}" class="nav-link">Logout</a></li> -->
+           </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="cont-1">
+            <h4>LOGIN</h4>
+            <form method="post" enctype="multipart/form-data">
+                <label for="username" class="lab">Username: 
+                    <input type="email" name="username" class="inputs" required>
+                </label>
+                <label for="password" class="lab">Password: 
+                    <input type="password" name="password" class="inputs" required>
+                </label>
+                Student: <input type='radio' value="1" name="tor">
+                Teacher: <input type="radio" value="0" name="tor">
+                <input type="submit" value="Login" class="btn">
+        
+                {% for m in get_flashed_messages() %}
+                    <p style="color: red;">{{m}}</p>
+                {% endfor %}
+        
+            </form>
+        </div>
+    </main>
+    
+</body>
+</html>

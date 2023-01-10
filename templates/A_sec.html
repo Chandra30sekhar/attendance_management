@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../static/images/graduates.png">
+    <link rel="stylesheet" href="../static/css/navbar.css">
+    <link rel="stylesheet" href="../static/css/class.css">
+    <link rel="stylesheet" href="../static/css/font.css">
+    <script src="jquery-3.6.1.min.js"></script>
+    <title>A Section</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+           <ul>
+            <li> <a href="{{url_for('index')}}" class="nav-link">Home</a></li>
+            <li> <a href="{{url_for('logout')}}" class="nav-link">Logout</a></li>
+           </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <div class="indiv" id="title">
+            <p>NAME</p>
+            <div class="inp-box">
+                <p>STATUS</p>
+            </div>
+        </div>
+        <form method="post" enctype="multipart/form-data">
+            {% for i in range(students|length) %}
+                {% if i % 2 == 0 %}
+                    <div class="indiv" id="even">
+                        <p>{{students[i]}}</p>
+                        <div class="inp-box">
+                            <label for="present" class="lab">Present
+                                <input type="radio" name={{students[i]}} id="present" class="inputs" value="1">
+                            </label>
+                            <label for="absent" class="lab">Absent
+                                <input type="radio" name={{students[i]}} id="absent" class="inputs" value="0">
+                            </label>
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="indiv" id="odd">
+                        <p>{{students[i]}}</p>
+                        <div class="inp-box">
+                            <label for="present" class="lab">Present
+                                <input type="radio" name={{students[i]}} class="inputs" value="1">
+                            </label>
+                            <label for="absent" class="lab">Absent
+                                <input type="radio" name={{students[i]}} class="inputs" value="0">
+                            </label>
+                        </div>
+                    </div>
+                {% endif %}
+        {% endfor %}
+        <input type="submit" class="btn">
+        </form>
+        {% for m in get_flashed_messages() %}
+            <p>{{m}}</p>
+        {% endfor %}
+    </div>
+</body>
+</html>

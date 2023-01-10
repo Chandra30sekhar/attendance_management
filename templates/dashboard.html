@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../static/images/graduates.png">
+    <link rel="stylesheet" href="../static/css/font.css">
+    <script src="jquery-3.6.1.min.js"></script>
+    <link rel="stylesheet" href="../static/css/dashboard.css">
+    <link rel="stylesheet" href="../static/css/navbar.css">
+    <title>Dashboard</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+           <ul>
+            <li> <a href="{{url_for('index')}}" class="nav-link">Home</a></li>
+            <li> <a href="{{url_for('logout')}}" class="nav-link">Logout</a></li>
+           </ul>
+        </nav>
+        </header>
+    <main>
+        <!-- Logged in successfully -->
+        <div class="show-details">
+            <p class="per-name">Email: {{my_name}}</p>
+
+        </div>
+    
+        <div class="container">
+            
+            {% if teacher == "1" %}
+                <div class="class-card">
+                    <h2>A</h2>
+                    <p>No of students: {{n1}}</p>
+                    <p>Date: {{date}}</p>
+                    <a href="{{url_for('ASec')}}" class="take_att">Take Attendance</a>
+                </div>
+
+                <div class="class-card">
+                    <h2>B</h2>
+                    <p>No of students: {{n2}}</p>
+                    <p>Date: {{date}}</p>
+                    <a href="{{url_for('BSec')}}" class="take_att">Take Attendance</a>
+                </div>
+
+                <div class="class-card">
+                    <h2>C</h2>
+                    <p>No of students: {{n3}}</p>
+                    <p>Date: {{date}}</p>
+                    <a href="{{url_for('CSec')}}" class="take_att">Take Attendance</a>
+                </div>
+                            
+                    
+                    <p>{{no_std}}</p>
+                {% else %}
+                    <div class="class-card">
+                        <h2>{{c_name1}}</h2>
+                        <!-- {% if percent1 < 40 %}
+                            <p>Attendance : <span style="color: red; font-weight: bold;">{{percent1}}%</span></p>
+                        {% endif %} -->
+                        {% if percent1 < 80 %}
+                            <p>Attendance : <span style="color: red; font-weight: bold;">{{percent1}}%</span></p>
+                        {% endif %}
+                        {% if percent1 > 80 %}
+                            <p>Attendance : <span style="color: green; font-weight: bold;">{{percent1}}%</span></p>
+                        {% endif %}
+                        <!-- <p>Data: {{date}}</p>
+                        <a href="{{url_for('ASec')}}">Take Attendance</a> -->
+                    </div>
+
+                    <div class="class-card">
+                        <h2>{{c_name2}}</h2>
+                        <!-- {% if percent2 < 40 %}
+                            <p>Attendance : <span style="color: red; font-weight: bold;">{{percent2}}%</span></p>
+                        {% endif %} -->
+                        {% if percent2 < 80 %}
+                            <p>Attendance : <span style="color: red; font-weight: bold;">{{percent2}}%</span></p>
+                        {% endif %}
+                        {% if percent2 > 80 %}
+                            <p>Attendance : <span style="color: green; font-weight: bold;">{{percent2}}%</span></p>
+                        {% endif %}
+                        <!-- <p>Data: {{date}}</p>
+                        <a href="{{url_for('ASec')}}">Take Attendance</a>
+                    </div> -->
+
+                        
+                    </div>
+
+                <div class="class-card">
+                    <h2>{{c_name3}}</h2>
+                    <!-- {% if percent3 < 40 %}
+                        <p>Attendance : <span style="color: red; font-weight: bold;">{{percent3}}%</span></p>
+                    {% endif %} -->
+                    {% if percent3 < 80 %}
+                        <p>Attendance : <span style="color: red; font-weight: bold;">{{percent3}}%</span></p>
+                    {% endif %}
+                    {% if percent3 > 80 %}
+                        <p>Attendance : <span style="color: green; font-weight: bold;">{{percent3}}%</span></p>
+                    {% endif %}
+                    <!-- <p>Data: {{date}}</p>
+                    <a href="{{url_for('ASec')}}">Take Attendance</a>
+                </div> -->
+
+            
+                </div>
+                {% endif %}
+
+        </div>
+        <!-- <a href="{{url_for('logout')}}">Logout</a> -->
+    </main>
+</body>
+</html>

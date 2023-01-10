@@ -1,0 +1,53 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.container{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 500px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.class-card{
+    height: 200px;
+    width: 300px;
+    /* border: 2px solid orange; */
+    border-radius: 0.65em;
+    padding: 10px;
+    margin: 20px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    border: 2px solid #205295;
+}
+
+.show-details{
+    display: flex;
+    position: absolute;
+    height: 80px;
+    width: 150px;
+    /* border: 1px solid black; */
+    right: 50px;
+    top: 80px;
+}
+
+.take_att{
+    width: 280px;
+    height: 50px;
+    background: #0A2647;
+    padding: 5px;
+    border-radius: 0.25em;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+
+}

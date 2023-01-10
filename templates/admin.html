@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../static/images/graduates.png">
+    <script src="jquery-3.6.1.min.js"></script>
+    <link rel="stylesheet" href="../static/css/admin.css">
+    <link rel="stylesheet" href="../static/css/font.css">
+    <title>Admin</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
+    </style>
+</head>
+<body>
+    <h1>ADMIN</h1>
+    <main>
+        <div class="container" id="student">
+            <h2>Form to add new students</h2>
+            <form enctype="multipart/form-data" method="post">
+                <input type="hidden" value="1" name="my_val">
+                <label for="s_name">Student first name: 
+                    <input type="text" name="s_fname" class="inputs">
+                </label>
+                <label for="s_name">Student last name: 
+                    <input type="text" name="s_lname" class="inputs">
+                </label>
+                <label for="s_name">Student email: 
+                    <input type="email" name="s_email" class="inputs">
+                </label>
+                <label for="s_pass">Student Password
+                    <input type="password" name="s_pass" class="inputs">
+                </label>
+                <label for="s_name">Student semester: 
+                    <input type="number" min="1" max="8" name="s_sem" class="inputs">
+                </label>
+                <label for="s_name">Student department number: 
+                    <input type="number" min="1" max="8" name="s_dept" class="inputs">
+                </label>
+                <label for="s_name">Student section: 
+                    <input type="text" name="s_sec" class="inputs">
+                </label>
+                <label for="s_name">Date of Birth: 
+                    <input type="date" name="s_dob" class="inputs">
+                </label>
+                <input type="submit">
+            </form>
+        </div>
+        
+        <br><br>
+        {% for m in get_flashed_messages() %}
+            <p style="color: green;">{{m}}</p>
+        {% endfor %}
+        <br><br>
+        <div class="container" id="teacher">
+            <h2>Form to add new teachers</h2>
+            <form enctype="multipart/form-data" method="post">
+                <input type="hidden" value="0" name="my_val">
+                <label for="s_name">Teacher first name: 
+                    <input type="text" name="t_fname" class="inputs">
+                </label>
+                <label for="s_name">Teacher last name: 
+                    <input type="text" name="t_lname" class="inputs">
+                </label>
+                <label for="s_name">Teacher email: 
+                    <input type="email" name="t_email" class="inputs">
+                </label>
+                <label for="s_pass">Teacher Password
+                    <input type="password" name="t_pass" class="inputs">
+                </label>
+                <label for="s_name">Teacher department number: 
+                    <input type="number" min="1" max="8" name="t_dept" class="inputs">
+                </label>
+                <label for="s_name">Teacher section: 
+                    <input type="text" name="t_sec" class="inputs">
+                </label>
+                <label for="s_name">Course: 
+                    <input type="text" name="course" class="inputs">
+                </label>
+                <label for="s_name">Date of Birth: 
+                    <input type="date" name="t_dob" class="inputs">
+                </label>
+                <label for="s_name">Date of joining: 
+                    <input type="date" name="t_doj" class="inputs">
+                </label>
+                <input type="submit">
+            </form>
+        </div>
+    </main>
+</body>
+</html>
